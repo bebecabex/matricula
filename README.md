@@ -2,7 +2,7 @@
 
 ## Instalação
 ```bash
-git clone <url-do-repo>
+git clone https://github.com/bebecabex/matricula
 
 cd matricula
 
