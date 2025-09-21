@@ -1,0 +1,31 @@
+{% extends "alunos/base.html" %}
+
+{% block content %}
+<a class="btn btn-success mb-3" href="{% url 'criar_aluno' %}">➕ Novo Aluno</a>
+
+<table class="table table-striped table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Idade</th>
+      <th>Curso</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for aluno in alunos %}
+      <tr>
+        <td>{{ aluno.nome }}</td>
+        <td>{{ aluno.email }}</td>
+        <td>{{ aluno.idade }}</td>
+        <td>{{ aluno.get_curso_display }}</td>
+        <td>
+          <a class="btn btn-warning btn-sm" href="{% url 'editar_aluno' aluno.id %}">✏️ Editar</a>
+          <a class="btn btn-danger btn-sm" href="{% url 'excluir_aluno' aluno.id %}">🗑️ Excluir</a>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
